@@ -3,11 +3,11 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "/",
+  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "白菜",
-    url: "https://bcbot.icu",
+    name: "Mr.Hope",
+    url: "https://mister-hope.com",
   },
 
   iconAssets: "fontawesome-with-brands",
@@ -43,46 +43,34 @@ export default hopeTheme({
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
   // hotReload: true,
 
-  /* 在这里配置主题提供的插件 */
-    plugins: {
-    components: {
-        /* 组件 */
-        components: [
-          "BiliBili", // 哔哩哔哩视频嵌入
-          "VPCard",   // 卡片
-        ],
-      },
-    copyCode: {
-        showInMobile: true // 在移动端启用复制代码
-       }, 
-      mdEnhance: {
-        /* MdEnhance 插件配置
-         * https://theme-hope.vuejs.press/zh/config/plugins/md-enhance.html 
-         */
-        hint: true,	       // 提示容器
-        figure: true,      // 启用 figure 图片描述
-        imgLazyload: true, // 启用图片懒加载
-        imgMark: true,     // 启用图片标记
-        imgSize: true,     // 启用图片大小
-        codetabs: true,    // 多行代码块
-        mark: true,        // 标记        
-        align: true,       // 自定义对齐
-        tasklist: true,    // 任务列表
-        attrs: true,       // 属性支持
-        demo: true,        // 代码演示
-        include: true,     // 导入文件
-        footnote: true,    // 启用脚注
-        sub: true,	       // 启用下角标
-        sup: true,	       // 启用上角标
-        tabs: true,        // 启用选项卡
-        vPre: true,        // 启用 v-pre 容器
+  // 在这里配置主题提供的插件
+  plugins: {
+    // 你应该自行生成自己的评论服务
+    comment: {
+      provider: "Giscus",
+      repo: "vuepress-theme-hope/giscus-discussions",
+      repoId: "R_kgDOG_Pt2A",
+      category: "Announcements",
+      categoryId: "DIC_kwDOG_Pt2M4COD69",
+    },
 
-      playground: {
-        presets: ["ts", "vue"],
-      },
-      
+    components: {
+      components: ["Badge", "VPCard"],
+    },
+
+    // 此处开启了很多功能用于演示，你应仅保留用到的功能。
+    mdEnhance: {
+      align: true,
+      attrs: true,
+      codetabs: true,
+      component: true,
+      demo: true,
+      figure: true,
+      imgLazyload: true,
+      imgSize: true,
+      include: true,
+      mark: true,
       stylize: [
-      // 样式化
         {
           matcher: "Recommended",
           replacer: ({ tag }) => {
@@ -91,10 +79,109 @@ export default hopeTheme({
                 tag: "Badge",
                 attrs: { type: "tip" },
                 content: "Recommended",
-            };
+              };
           },
         },
       ],
+      sub: true,
+      sup: true,
+      tabs: true,
+      vPre: true,
+
+      // 在启用之前安装 chart.js
+      // chart: true,
+
+      // insert component easily
+
+      // 在启用之前安装 echarts
+      // echarts: true,
+
+      // 在启用之前安装 flowchart.ts
+      // flowchart: true,
+
+      // gfm requires mathjax-full to provide tex support
+      // gfm: true,
+
+      // 在启用之前安装 katex
+      // katex: true,
+
+      // 在启用之前安装 mathjax-full
+      // mathjax: true,
+
+      // 在启用之前安装 mermaid
+      // mermaid: true,
+
+      // playground: {
+      //   presets: ["ts", "vue"],
+      // },
+
+      // 在启用之前安装 reveal.js
+      // revealJs: {
+      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+      // },
+
+      // 在启用之前安装 @vue/repl
+      // vuePlayground: true,
+
+      // install sandpack-vue3 before enabling it
+      // sandpack: true,
     },
+
+    // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
+    // pwa: {
+    //   favicon: "/favicon.ico",
+    //   cacheHTML: true,
+    //   cachePic: true,
+    //   appendBase: true,
+    //   apple: {
+    //     icon: "/assets/icon/apple-icon-152.png",
+    //     statusBarColor: "black",
+    //   },
+    //   msTile: {
+    //     image: "/assets/icon/ms-icon-144.png",
+    //     color: "#ffffff",
+    //   },
+    //   manifest: {
+    //     icons: [
+    //       {
+    //         src: "/assets/icon/chrome-mask-512.png",
+    //         sizes: "512x512",
+    //         purpose: "maskable",
+    //         type: "image/png",
+    //       },
+    //       {
+    //         src: "/assets/icon/chrome-mask-192.png",
+    //         sizes: "192x192",
+    //         purpose: "maskable",
+    //         type: "image/png",
+    //       },
+    //       {
+    //         src: "/assets/icon/chrome-512.png",
+    //         sizes: "512x512",
+    //         type: "image/png",
+    //       },
+    //       {
+    //         src: "/assets/icon/chrome-192.png",
+    //         sizes: "192x192",
+    //         type: "image/png",
+    //       },
+    //     ],
+    //     shortcuts: [
+    //       {
+    //         name: "Demo",
+    //         short_name: "Demo",
+    //         url: "/demo/",
+    //         icons: [
+    //           {
+    //             src: "/assets/icon/guide-maskable.png",
+    //             sizes: "192x192",
+    //             purpose: "maskable",
+    //             type: "image/png",
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    // },
   },
 });
